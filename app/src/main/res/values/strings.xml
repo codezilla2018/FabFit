@@ -27,9 +27,9 @@
     <string name="placholdersteps">10.000</string>
     <string name="stepicon">stepicon</string>
     <string name="steps">steps</string>
-    <string name="total">total</string>
-    <string name="average">average</string>
-    <string name="loading_tweets">Loading Tweets</string>
+    <string name="total">Total</string>
+    <string name="average">Average</string>
+    <string name="loading_tweets">Loading</string>
 
 
 </resources>

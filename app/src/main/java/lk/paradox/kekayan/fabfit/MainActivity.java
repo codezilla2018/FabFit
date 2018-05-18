@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import lk.paradox.kekayan.fabfit.fragments.ProfileFragment;
+import lk.paradox.kekayan.fabfit.fragments.SettingsFragment;
 import lk.paradox.kekayan.fabfit.fragments.StepsFragment;
 import lk.paradox.kekayan.fabfit.fragments.TweetsFragment;
 import lk.paradox.kekayan.fabfit.sensors.SensorListener;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private long mBackPressed;
     private FragmentManager fm;
     private FragmentTransaction ft;
+    private BottomNavigationView bottomNavigationView;
     //click events for bottom navigation buttons
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     StepsFragment stepsFragment = new StepsFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, stepsFragment)
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_tweets:
+                    bottomNavigationView.setItemBackgroundResource(R.color.colorAccent);
                     TweetsFragment tweetsFragment = new TweetsFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, tweetsFragment)
@@ -48,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.navigation_settings:
+                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
+                    SettingsFragment settingsFragment = new SettingsFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_container, settingsFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    return true;
+                case R.id.navigation_profile:
+                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     ProfileFragment profileFragment = new ProfileFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, profileFragment)
@@ -81,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bottomNavigationView = findViewById(R.id.navigation);
         //start the sensorlistener service
         startService(new Intent(this, SensorListener.class));
         //loading the stepsfragment as main when app launched
