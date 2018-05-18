@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:padding="5dp"
+    tools:context=".fragments.StepsFragment">
+
+    <org.eazegraph.lib.charts.PieChart xmlns:eaze="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        eaze:egHighlightStrength="1"
+        eaze:egInnerPadding="75"
+        eaze:egInnerPaddingColor="@color/colorPrimaryDark"
+        eaze:egLegendHeight="0dp">
+
+
+    </org.eazegraph.lib.charts.PieChart>
+
+    <TextView
+        android:id="@+id/steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:gravity="center"
+        android:text="@string/placholdersteps"
+        android:textColor="@android:color/white"
+        android:textSize="45sp" />
+
+    <ImageView
+        android:id="@+id/stepsimageView"
+        android:layout_width="56dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/steps"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/stepicon"
+        android:src="@drawable/footicon" />
+
+    <TextView
+        android:id="@+id/unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/steps"
+        android:layout_centerHorizontal="true"
+        android:text="@string/steps"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/averageandtotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/graph"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/average"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/averageandtotaltext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/averageandtotal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/average"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/total"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/averageandtotaltext"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/caloriestxt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/calories"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#fff"
+            android:textSize="50sp" />
+    </LinearLayout>
+</RelativeLayout>
+

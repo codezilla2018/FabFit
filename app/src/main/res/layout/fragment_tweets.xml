@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.TweetsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- recycler view to show search query timeline -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_timeline_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- empty label to show when no tweets available -->
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/loading_tweets" />
+    </LinearLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
