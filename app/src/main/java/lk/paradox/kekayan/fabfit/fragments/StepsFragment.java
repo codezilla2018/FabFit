@@ -35,10 +35,7 @@ import lk.paradox.kekayan.fabfit.helpers.Util;
 public class StepsFragment extends Fragment implements SensorEventListener {
 
     public final static NumberFormat formatter = NumberFormat.getInstance(Locale.getDefault());
-    // from https://github.com/bagilevi/android-pedometer/blob/master/src/name/bagi/levente/pedometer/CaloriesNotifier.java
-    private static double METRIC_RUNNING_FACTOR = 1.02784823;
-    private static double METRIC_WALKING_FACTOR = 0.708;
-    private static double METRIC_AVG_FACTOR = (METRIC_RUNNING_FACTOR + METRIC_WALKING_FACTOR) / 2;
+  
     ImageView footImage;
     private TextView stepsView, totalView, averageView, caloriesView;
     private PieModel sliceGoal, sliceCurrent;
@@ -261,12 +258,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
 
     public double calculateCalories(int stepscount) {
 
-        double mCalories =
-                (SettingsFragment.DEFAULT_WEIGHT * (METRIC_AVG_FACTOR))
-                        * 75 * stepscount / 100000.0;
-        //75-step size
-        //weight
-        return mCalories;
+        d        return mCalories;
     }
 
 
