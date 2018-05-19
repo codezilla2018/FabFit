@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_tweets:
-                    bottomNavigationView.setItemBackgroundResource(R.color.colorAccent);
+                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     TweetsFragment tweetsFragment = new TweetsFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, tweetsFragment)
