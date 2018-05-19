@@ -49,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                                     .setIsSmartLockEnabled(false)
                                     .setAvailableProviders(
                                             Arrays.asList(
+                                                    new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
+                                                    new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER).build(),
                                                     new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build()
                                             )).setTheme(R.style.SplashTheme)
                                     .build()
@@ -72,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
 
     }
+
 
     //on resume is the  first method called after on create so we have to check the authentication!
     @Override

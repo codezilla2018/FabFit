@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="TransparentBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="TransparentBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
     </style>
@@ -16,4 +16,13 @@
         <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorWhite</item>
+    </style>
+
+    <style name="MycancelButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorWhiteTransparent</item>
+    </style>
 </resources>

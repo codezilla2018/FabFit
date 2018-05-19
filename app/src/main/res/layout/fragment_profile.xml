@@ -13,6 +13,7 @@
         android:background="@drawable/background" />
 
     <LinearLayout
+        android:id="@+id/personaldetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/background"
@@ -55,5 +56,31 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/logoutpart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/personaldetails"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/editinfobtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="EditInfo" />
+
+        <Button
+            android:id="@+id/signoutbtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+
+            android:text="Logout" />
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -94,6 +94,9 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".EditprofileActivity"
+            android:theme="@style/TransparentBar"></activity>
     </application>
 
 </manifest>
