@@ -66,6 +66,7 @@ public class ProfileFragment extends Fragment {
         Log.d("KEY", userID);
         //Database Reference
         mCustomerDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        getUserInfo();
     }
 
     private void getUserInfo() {
@@ -96,4 +97,6 @@ public class ProfileFragment extends Fragment {
         };
         mCustomerDatabase.addValueEventListener(listener);
     }
+
+
 }

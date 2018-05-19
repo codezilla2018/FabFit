@@ -24,7 +24,7 @@
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         app:itemIconTint="@color/navbar_bottom"
         app:itemTextColor="@color/navbar_bottom"
         app:layout_constraintBottom_toBottomOf="parent"

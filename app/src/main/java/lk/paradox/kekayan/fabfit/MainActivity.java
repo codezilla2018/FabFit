@@ -2,13 +2,17 @@ package lk.paradox.kekayan.fabfit;
 
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +25,7 @@ import lk.paradox.kekayan.fabfit.sensors.SensorListener;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private TweetsFragment tweetsFragment;
     private static final int TIME_INTERVAL = 2000;
     private TextView mTextMessage;
     private long mBackPressed;
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
+                    // bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     StepsFragment stepsFragment = new StepsFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, stepsFragment)
@@ -45,15 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_tweets:
-                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
-                    TweetsFragment tweetsFragment = new TweetsFragment();
+                    // bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
+                    tweetsFragment = new TweetsFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, tweetsFragment)
                             .addToBackStack(null)
                             .commit();
                     return true;
                 case R.id.navigation_settings:
-                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
+                    // bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     SettingsFragment settingsFragment = new SettingsFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, settingsFragment)
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.navigation_profile:
-                    bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
+                    // bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     ProfileFragment profileFragment = new ProfileFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frame_container, profileFragment)
@@ -111,22 +115,42 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-    /*private void setProfile() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            String uname = user.getDisplayName();
-            String uemail = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            name.setText(uname);
-            email.setText(uemail);
-            if (photoUrl != null) {
-                String imageUri = photoUrl.toString();
-                Picasso.with(this).load(imageUri).into(profile);
-            }
+    public boolean isReadStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v("permission", "Permission is granted1");
+                return true;
+            } else {
 
-            String uid = user.getUid();
+                Log.v("permission", "Permission is revoked1");
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 3);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v("permission", "Permission is granted1");
+            return true;
         }
-    }*/
+    }
+
+    public boolean isWriteStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v("permission", "Permission is granted2");
+                return true;
+            } else {
+
+                Log.v("permission", "Permission is revoked2");
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v("permission", "Permission is granted2");
+            return true;
+        }
+    }
+
+
 
 }
