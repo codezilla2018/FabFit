@@ -20,6 +20,7 @@
         android:layout_marginTop="-100dp">
 
         <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imagedp"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/mydp"
@@ -36,6 +37,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/nametxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
@@ -44,6 +46,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/emailtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"

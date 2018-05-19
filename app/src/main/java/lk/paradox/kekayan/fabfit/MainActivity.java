@@ -21,6 +21,7 @@ import lk.paradox.kekayan.fabfit.sensors.SensorListener;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private static final int TIME_INTERVAL = 2000;
     private TextView mTextMessage;
     private long mBackPressed;
@@ -109,5 +110,23 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+    /*private void setProfile() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Name, email address, and profile photo Url
+            String uname = user.getDisplayName();
+            String uemail = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+            name.setText(uname);
+            email.setText(uemail);
+            if (photoUrl != null) {
+                String imageUri = photoUrl.toString();
+                Picasso.with(this).load(imageUri).into(profile);
+            }
+
+            String uid = user.getUid();
+        }
+    }*/
 
 }
