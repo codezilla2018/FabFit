@@ -56,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
                             .addToBackStack(null)
                             .commit();
                     return true;
+                case R.id.navigation_histroy:
+                    // bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
+                    HistoryFragment historyFragment = new HistoryFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_container, historyFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    return true;
                 case R.id.navigation_settings:
                     // bottomNavigationView.setItemBackgroundResource(R.color.colorPrimaryDark);
                     SettingsFragment settingsFragment = new SettingsFragment();

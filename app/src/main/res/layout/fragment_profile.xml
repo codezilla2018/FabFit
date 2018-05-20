@@ -38,6 +38,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:autoSizeTextType="uniform"
                 android:id="@+id/nametxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:autoSizeTextType="uniform"
                 android:id="@+id/emailtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,6 +68,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:autoSizeTextType="uniform"
             android:id="@+id/editinfobtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -73,6 +76,7 @@
             android:text="EditInfo" />
 
         <Button
+            android:autoSizeTextType="uniform"
             android:id="@+id/signoutbtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
