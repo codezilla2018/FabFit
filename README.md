@@ -1,6 +1,6 @@
 # FabFit
-notkekayan@gmail.com Kekayan kekayan IA9
-Simple 	**FabFit	** app using the 	**step-sensor	**  which introuduced in KitKat version of android for 	**minimal** **battery	** consumption which runs in hardware level.
++notkekayan@gmail.com Kekayan kekayan IA9
++Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery	** consumption which runs in hardware level.
 more info : 
 [![youtube video](http://img.youtube.com/vi/yv9jskPvLUcE/0.jpg)](http://www.youtube.com/watch?v=yv9jskPvLUc)
 [link](https://www.youtube.com/watch?v=yv9jskPvLUc)
