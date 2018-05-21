@@ -1,7 +1,7 @@
 # FabFit
 notkekayan@gmail.com Kekayan kekayan IA9
 ***
-Download the [apk](https://github.com/codezilla2018/FabFit/raw/master/demo/app.apk) or (abb)[https://github.com/codezilla2018/FabFit/raw/master/demo/app.apk]
+Download the [apk](https://github.com/codezilla2018/FabFit/raw/master/demo/app.apk) or [abb](https://github.com/codezilla2018/FabFit/raw/master/demo/app.apk)
 or
 [both](https://github.com/codezilla2018/FabFit/tree/master/demo)
 ***
@@ -79,4 +79,4 @@ Also uses Glide,Picasso,Firebase,Support desgin latest version
 Declaring sensors requirement in the manifest
 If your app requires support for the step counter you will have to declare it in the app's AndroidManifest.xml file:
 ```xml
-<uses-feature android:name="android.hardware.sensor.stepcounter " android:required="true"/>```
+<uses-feature android:name="android.hardware.sensor.stepcounter " android:required="true"/>
