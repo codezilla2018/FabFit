@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         //start the sensorlistener service
         startService(new Intent(this, SensorListener.class));
 
-        //
+        //check and put values to height and weight if not in shared prefrends
         SharedPreferences prefs = getSharedPreferences("FabFit", MODE_PRIVATE);
         int check=prefs.getInt("height",0);
         if(check<0) {
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        //loading the stepsfragment as main when app launched
+        //loading the stepsfragment as first when app launched
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.frame_container);
 
@@ -138,10 +138,12 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().add(R.id.frame_container, fragment).commit();
         }
 
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
-
+    /**
+     * Call this method to check
+     * read stroage permission
+     */
     public boolean isReadStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -159,6 +161,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
+    /**
+     * Call this method to check
+     * wrie stroage permission
+     */
 
     public boolean isWriteStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {

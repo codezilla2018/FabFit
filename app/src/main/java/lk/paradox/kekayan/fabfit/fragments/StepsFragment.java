@@ -73,7 +73,10 @@ public class StepsFragment extends Fragment implements SensorEventListener {
         pg.addPieSlice(sliceCurrent);
 
         // slice for the "missing" steps until reaching the goal
-        sliceGoal = new PieModel("", SettingsFragment.DEFAULT_GOAL, Color.parseColor("#CC0000"));
+        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences
+                ("FabFit", MODE_PRIVATE);
+        int goals= prefs.getInt("dailygoal",SettingsFragment.DEFAULT_GOAL);
+        sliceGoal = new PieModel("", goals, Color.parseColor("#CC0000"));
         pg.addPieSlice(sliceGoal);
 
         pg.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +104,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
         SharedPreferences prefs =
                 Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
 
-        goal = prefs.getInt("goal", SettingsFragment.DEFAULT_GOAL);
+        goal = prefs.getInt("dailygoal", SettingsFragment.DEFAULT_GOAL);
         since_boot = db.getCurrentSteps(); // do not use the value from the sharedPreferences
         int pauseDifference = since_boot - prefs.getInt("pauseCount", since_boot);
 

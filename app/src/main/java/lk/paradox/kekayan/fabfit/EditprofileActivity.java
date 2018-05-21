@@ -97,7 +97,10 @@ public class EditprofileActivity extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * Call this method to update the each textfields
+     * and image to display first
+     */
     private void getUserInfo() {
         ValueEventListener listener = new ValueEventListener() {
             @Override
@@ -131,7 +134,10 @@ public class EditprofileActivity extends AppCompatActivity {
         };
         mDatabase.addValueEventListener(listener);
     }
-
+    /**
+     * Call this method to update in firebase
+     *if user didnt change profile it will update only others
+     */
     private void saveUserInformation() {
         mName = mNameField.getText().toString();
         String mAge = mAgeField.getText().toString();
@@ -189,7 +195,7 @@ public class EditprofileActivity extends AppCompatActivity {
         } else {
             Log.i("KEY", "update eror");
             //finish();
-           
+
         }
 
     }
