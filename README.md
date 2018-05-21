@@ -1,11 +1,11 @@
 # FabFit
 notkekayan@gmail.com Kekayan kekayan IA9
 ***
-Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery	** consumption which runs in hardware level.
+Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery** consumption which runs in hardware level.
 
 more info : 
 
-[![youtube video](https://img.youtube.com/vi/yv9jskPvLUc/hqdefault.jpg)](http://www.youtube.com/watch?v=yv9jskPvLUc)
+[![youtube video](https://img.youtube.com/vi/yv9jskPvLUc/mqdefault.jpg)](http://www.youtube.com/watch?v=yv9jskPvLUc)
 [link](https://www.youtube.com/watch?v=yv9jskPvLUc)
 >We can implement  own step-detection algorithm or  Sensor Fusion and other Algorithms using the acceleration data from Accelerometer sensor.But the battery use is extremely high as you have to keep the system awake.Since most the devices now have sensor for step dector better and recommended to use to save battery which crucial in mobile devices.
 
