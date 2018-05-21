@@ -32,15 +32,14 @@ import lk.paradox.kekayan.fabfit.R;
 
 
 public class TweetsFragment extends Fragment {
-    //used twitter kit for android to retrive tweets
-    //from their rest api | search function
+
     private Context context;
     private RecyclerView searchTimelineRecyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private TweetTimelineRecyclerViewAdapter adapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tweets, container, false);
@@ -65,6 +64,7 @@ public class TweetsFragment extends Fragment {
                 .debug(true)
                 .build();
         Twitter.initialize(config);
+
     }
 
     @Override
