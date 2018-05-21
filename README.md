@@ -54,6 +54,8 @@ It retirve tweets from twitter for hashtag "fitness"
 
 calories calculation formula used from [this link](https://fitness.stackexchange.com/a/25500)
 
+[Firebase tuts](https://www.firebase.com/docs/android/guide/saving-data.html)
+
 
 It uses the 
 [EazeGraphLibrary](https://github.com/blackfizz/EazeGraph)  pie and bar charts
