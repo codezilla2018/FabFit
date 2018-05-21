@@ -31,17 +31,22 @@ import lk.paradox.kekayan.fabfit.db.Database;
 import lk.paradox.kekayan.fabfit.helpers.Logger;
 import lk.paradox.kekayan.fabfit.helpers.Util;
 
+import static android.content.Context.MODE_PRIVATE;
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_HEIGHT;
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_WEIGHT;
+
 
 public class StepsFragment extends Fragment implements SensorEventListener {
 
     public final static NumberFormat formatter = NumberFormat.getInstance(Locale.getDefault());
-    private static double METRIC_FACTOR = 1.007326007326007;
+    private static double WALKING_FACTOR = 0.57;
     ImageView footImage;
     private TextView stepsView, totalView, averageView, caloriesView;
     private PieModel sliceGoal, sliceCurrent;
     private PieChart pg;
     private int todayOffset, total_start, goal, since_boot, total_days;
     private boolean showSteps = true;
+    SharedPreferences prefs;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -94,7 +99,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
         todayOffset = db.getSteps(Util.getToday());
 
         SharedPreferences prefs =
-                Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", Context.MODE_PRIVATE);
+                Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
 
         goal = prefs.getInt("goal", SettingsFragment.DEFAULT_GOAL);
         since_boot = db.getCurrentSteps(); // do not use the value from the sharedPreferences
@@ -146,7 +151,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
             ((TextView) getView().findViewById(R.id.unit)).setText("Steps");
 
         } else {
-            String unit = getActivity().getSharedPreferences("FabFit", Context.MODE_PRIVATE)
+            String unit = getActivity().getSharedPreferences("FabFit", MODE_PRIVATE)
                     .getString("stepsize_unit", SettingsFragment.DEFAULT_STEP_UNIT);
             if (unit.equals("cm")) {
                 unit = "km";
@@ -231,12 +236,12 @@ public class StepsFragment extends Fragment implements SensorEventListener {
             stepsView.setText(formatter.format(steps_today));
             totalView.setText(formatter.format(total_start + steps_today));
             averageView.setText(formatter.format((total_start + steps_today) / total_days));
-            caloriesView.setText(formatter.format(calculateCalories(steps_today)));
+            //caloriesView.setText(formatter.format(calculateCalories(steps_today)));
         } else {
             // update only every 10 steps when displaying distance
             SharedPreferences prefs =
-                    Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", Context.MODE_PRIVATE);
-            double stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
+                    Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
+            double stepsize = prefs.getInt("height",DEFAULT_HEIGHT) * 0.415;
             double distance_today = steps_today * stepsize;
             double distance_total = (total_start + steps_today) * stepsize;
             if (prefs.getString("stepsize_unit", SettingsFragment.DEFAULT_STEP_UNIT)
@@ -251,24 +256,35 @@ public class StepsFragment extends Fragment implements SensorEventListener {
             stepsView.setText(formatter.format(distance_today));
             totalView.setText(formatter.format(distance_total));
             averageView.setText(formatter.format(distance_total / total_days));
-            caloriesView.setText(formatter.format(calculateCalories(steps_today)));
 
         }
         SharedPreferences prefs =
-                Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", Context.MODE_PRIVATE);
+                Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
         double stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
         double distance_today = steps_today * stepsize;
-        caloriesView.setText(formatter.format(calculateCalories( (distance_today /= 100000))));
+        caloriesView.setText(formatter.format(calculateCalories( (steps_today))));
     }
 
-    public double calculateCalories(double distance) {
+    public double calculateCalories(int stepsCount) {
+       SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
 
-        double mCalories =
-                (SettingsFragment.DEFAULT_WEIGHT * (METRIC_FACTOR))
-                        *distance;
+      double CaloriesBurnedPerMile = WALKING_FACTOR * (prefs.getInt("weight",DEFAULT_WEIGHT) * 2.2);
+        //https://fitness.stackexchange.com/a/25500
+        double strip = prefs.getInt("height",DEFAULT_HEIGHT) * 0.415;
 
-        return mCalories;
+        double stepCountMile = 160934.4 / strip;
+
+        double conversationFactor = CaloriesBurnedPerMile / stepCountMile;
+
+        double burnedcalories = stepsCount * conversationFactor;
+
+        System.out.println("Calories burned: "
+                + formatter.format(burnedcalories) + " cal");
+        
+
+        return burnedcalories;
     }
+
 
 
 }

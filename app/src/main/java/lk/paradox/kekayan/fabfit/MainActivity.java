@@ -1,7 +1,9 @@
 package lk.paradox.kekayan.fabfit;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,11 +19,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 import lk.paradox.kekayan.fabfit.fragments.ProfileFragment;
 import lk.paradox.kekayan.fabfit.fragments.SettingsFragment;
 import lk.paradox.kekayan.fabfit.fragments.StepsFragment;
 import lk.paradox.kekayan.fabfit.fragments.TweetsFragment;
 import lk.paradox.kekayan.fabfit.sensors.SensorListener;
+
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_HEIGHT;
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_WEIGHT;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -110,6 +117,18 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.navigation);
         //start the sensorlistener service
         startService(new Intent(this, SensorListener.class));
+
+        //
+        SharedPreferences prefs = getSharedPreferences("FabFit", MODE_PRIVATE);
+        int check=prefs.getInt("height",0);
+        if(check<0) {
+            SharedPreferences.Editor editor = getSharedPreferences("FabFit", MODE_PRIVATE).edit();
+            editor.putInt("height", DEFAULT_HEIGHT);
+            editor.putInt("weight", DEFAULT_WEIGHT);
+            editor.apply();
+
+        }
+
         //loading the stepsfragment as main when app launched
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.frame_container);

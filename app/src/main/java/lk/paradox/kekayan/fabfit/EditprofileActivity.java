@@ -2,6 +2,7 @@ package lk.paradox.kekayan.fabfit;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_HEIGHT;
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_WEIGHT;
 
 public class EditprofileActivity extends AppCompatActivity {
     public static final int RC_PHOTO_PICKER = 1;
@@ -179,6 +183,12 @@ public class EditprofileActivity extends AppCompatActivity {
                     return;
                 }
             });
+
+
+            SharedPreferences.Editor editor = getSharedPreferences("FabFit", MODE_PRIVATE).edit();
+            editor.putInt("height", Integer.valueOf(mHeight));
+            editor.putInt("weight", Integer.valueOf(mWeight));
+            editor.apply();
         } else {
             Log.i("KEY", "update eror");
             //finish();
