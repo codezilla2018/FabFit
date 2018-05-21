@@ -1,17 +1,20 @@
 # FabFit
 notkekayan@gmail.com Kekayan kekayan IA9
 ***
-*Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery	** consumption which runs in hardware level.
+Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery	** consumption which runs in hardware level.
+
 more info : 
+
 [![youtube video](http://img.youtube.com/vi/yv9jskPvLUcE/0.jpg)](http://www.youtube.com/watch?v=yv9jskPvLUc)
 [link](https://www.youtube.com/watch?v=yv9jskPvLUc)
 >We can implement  own step-detection algorithm or  Sensor Fusion and other Algorithms using the acceleration data from Accelerometer sensor.But the battery use is extremely high as you have to keep the system awake.Since most the devices now have sensor for step dector better and recommended to use to save battery which crucial in mobile devices.
 
-***
 
->So FabFit uses the hardware step detection sensor of the Samsung S7, which is already running even when not using any stepcounting app. Therefore the app does not drain any additional battery. Unlike other apps, this app does not track your movement or your location so it doesn't need to turn on your GPS sensor aslo.
+So FabFit uses the hardware step detection sensor of the Samsung S7, which is already running even when not using any stepcounting app. Therefore the app does not drain any additional battery. Unlike other apps, this app does not track your movement or your location so it doesn't need to turn on your GPS sensor aslo.
 
-***
+
+
+
 
 Sign in with your Google account!
 
@@ -36,7 +39,7 @@ This app will keep track of how much and how far you walked, all day, every day.
 It retirve tweets from twitter for hashtag "fitness"
 
 
-***
+
 
 It uses the 
 [EazeGraphLibrary](https://github.com/blackfizz/EazeGraph)  pie and bar charts
