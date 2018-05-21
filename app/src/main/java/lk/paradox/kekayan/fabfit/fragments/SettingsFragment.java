@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Locale;
 import java.util.Objects;
 
 import lk.paradox.kekayan.fabfit.R;
@@ -22,10 +21,8 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingsFragment extends Fragment {
     public final static int DEFAULT_WEIGHT = 52;
     public final static int DEFAULT_HEIGHT = 173;
-    private static double METRIC_AVG_FACTOR = 1.167185415740329;
-    public  static int DEFAULT_GOAL = 10000;
-    public final static double DEFAULT_STEP_SIZE =METRIC_AVG_FACTOR*DEFAULT_HEIGHT;
     public final static String DEFAULT_STEP_UNIT = "cm";
+    public static int DEFAULT_GOAL = 10000;
 
     //
     private Button save;
@@ -35,14 +32,14 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_settings, container, false);
-        save=(Button)v.findViewById(R.id.savegoalbtn);
-        dgoal=(EditText)v.findViewById(R.id.goaltxt);
+        View v = inflater.inflate(R.layout.fragment_settings, container, false);
+        save = v.findViewById(R.id.savegoalbtn);
+        dgoal = v.findViewById(R.id.goaltxt);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int goals =Integer.valueOf(String.valueOf(dgoal.getText()));
-                SharedPreferences.Editor editor =  Objects.requireNonNull(getActivity()).
+                int goals = Integer.valueOf(String.valueOf(dgoal.getText()));
+                SharedPreferences.Editor editor = Objects.requireNonNull(getActivity()).
                         getSharedPreferences("FabFit", MODE_PRIVATE).edit();
                 editor.putInt("dailygoal", goals);
                 editor.apply();
@@ -52,14 +49,13 @@ public class SettingsFragment extends Fragment {
 
     }
 
-    
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences
                 ("FabFit", MODE_PRIVATE);
-        int goals= prefs.getInt("dailygoal",DEFAULT_GOAL);
+        int goals = prefs.getInt("dailygoal", DEFAULT_GOAL);
         dgoal.setText(String.valueOf(goals));
     }
 }
