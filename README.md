@@ -1,6 +1,19 @@
 # FabFit
 notkekayan@gmail.com Kekayan kekayan IA9
 ***
+
+<p float="left">
+  <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/steps.png" width="250" />
+  <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/tweets.png" width="250" /> 
+  <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/histroy.png" width="250" />
+</p>
+<p float="left">
+  <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/editprofile.png" width="250" />
+  <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/profile.png" width="250" /> 
+  <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/settings.png" width="250" />
+</p>
+
+
 Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery** consumption which runs in hardware level.
 
 more info : 
