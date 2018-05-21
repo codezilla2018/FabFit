@@ -278,10 +278,6 @@ public class StepsFragment extends Fragment implements SensorEventListener {
 
         double burnedcalories = stepsCount * conversationFactor;
 
-        System.out.println("Calories burned: "
-                + formatter.format(burnedcalories) + " cal");
-        
-
         return burnedcalories;
     }
 
