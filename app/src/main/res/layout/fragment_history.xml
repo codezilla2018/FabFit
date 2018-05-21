@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".HistoryFragment">
+
+    <org.eazegraph.lib.charts.BarChart xmlns:eaze="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bargraph"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        eaze:egLegendHeight="35dp"
+        eaze:egShowValues="true" />
+
+</FrameLayout>

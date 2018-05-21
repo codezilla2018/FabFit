@@ -8,8 +8,12 @@
 
     <item
         android:id="@+id/navigation_tweets"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_tweets"
         android:title="@string/title_tweets" />
+    <item
+        android:id="@+id/navigation_histroy"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/history" />
 
     <item
         android:id="@+id/navigation_settings"

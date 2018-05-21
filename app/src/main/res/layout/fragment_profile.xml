@@ -1,14 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment2" />
+    <RelativeLayout
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+        android:background="@drawable/background" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/personaldetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/background"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-100dp">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imagedp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_camera"
+            app:civ_border_color="@color/semiTransparentWhite"
+            app:civ_border_width="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:autoSizeTextType="uniform"
+                android:id="@+id/nametxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Kekayan"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:autoSizeTextType="uniform"
+                android:id="@+id/emailtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="SE"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/logoutpart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/personaldetails"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button"
+            android:autoSizeTextType="uniform"
+            android:id="@+id/editinfobtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="EditInfo" />
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button"
+            android:autoSizeTextType="uniform"
+            android:id="@+id/signoutbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+
+            android:text="Logout" />
+
+    </LinearLayout>
+
+</RelativeLayout>

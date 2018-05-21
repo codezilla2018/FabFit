@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "786449076646",
+    "firebase_url": "https://codezillafabfit.firebaseio.com",
+    "project_id": "codezillafabfit",
+    "storage_bucket": "codezillafabfit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786449076646:android:2481230daacdae82",
+        "android_client_info": {
+          "package_name": "lk.paradox.kekayan.fabfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786449076646-s6a8c35su4cv1fit7h2h9pri1omlhqet.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "lk.paradox.kekayan.fabfit",
+            "certificate_hash": "2814ef7cdfcacd80d023a3620ec3a37de8631bf9"
+          }
+        },
+        {
+          "client_id": "786449076646-ucueuc0kseb879ust8fg6mi2e2illm5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEpm3e_JxJbXPwRNbRZkmDX4wuDh2BqZg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786449076646-ucueuc0kseb879ust8fg6mi2e2illm5p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

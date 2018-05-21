@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import lk.paradox.kekayan.fabfit.login.LoginActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -13,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
         //So we can avoid blank white page appears during splash launching
         //we do not have setContentView() for this SplashActivity.
         // View is displaying from the theme and this way it is faster than creating a layout
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
