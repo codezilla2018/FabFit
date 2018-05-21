@@ -14,6 +14,7 @@ notkekayan@gmail.com Kekayan kekayan IA9
 </p>
 
 
+
 Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery** consumption which runs in hardware level.
 
 more info : 
@@ -27,9 +28,10 @@ So FabFit uses the hardware step detection sensor of the Samsung S7, which is al
 
 
 
-
-
+<p><img src="https://github.com/kekayan/FabFit/raw/master/screenshots/login.png" width="250" /></p>
 Sign in with your Google account!
+
+currently only google sign in enabled
 
 Set your goal! Default is 10000 It is recommended that you take 10000 steps a day.
 
