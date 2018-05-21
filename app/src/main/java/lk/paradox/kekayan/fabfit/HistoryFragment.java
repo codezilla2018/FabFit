@@ -1,6 +1,5 @@
 package lk.paradox.kekayan.fabfit;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,9 +18,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import lk.paradox.kekayan.fabfit.db.Database;
 import lk.paradox.kekayan.fabfit.fragments.SettingsFragment;
+
+import static android.content.Context.MODE_PRIVATE;
+import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_HEIGHT;
 
 
 public class HistoryFragment extends Fragment {
@@ -37,13 +40,11 @@ public class HistoryFragment extends Fragment {
         BarChart barChart = getView().findViewById(R.id.bargraph);
         if (barChart.getData().size() > 0) barChart.clearChart();
         int steps;
-        double distance, stepsize = SettingsFragment.DEFAULT_STEP_SIZE;
+        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
+        double distance, stepsize = prefs.getInt("height", DEFAULT_HEIGHT) * 0.415;
         boolean stepsize_cm = true;
         if (!showSteps) {
             // load some more settings if distance is needed
-            SharedPreferences prefs =
-                    getActivity().getSharedPreferences("FabFit", Context.MODE_PRIVATE);
-             stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
             stepsize_cm = prefs.getString("stepsize_unit", SettingsFragment.DEFAULT_STEP_UNIT)
                     .equals("cm");
         }
@@ -68,7 +69,7 @@ public class HistoryFragment extends Fragment {
                         distance /= 5280;
                     }
                     distance = Math.round(distance * 1000) / 1000f; // 3 decimals
-                    bm.setValue((float)distance);
+                    bm.setValue((float) distance);
                 }
                 barChart.addBar(bm);
             }
