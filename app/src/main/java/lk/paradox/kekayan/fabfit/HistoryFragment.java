@@ -43,7 +43,7 @@ public class HistoryFragment extends Fragment {
             // load some more settings if distance is needed
             SharedPreferences prefs =
                     getActivity().getSharedPreferences("FabFit", Context.MODE_PRIVATE);
-             stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
+            stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
             stepsize_cm = prefs.getString("stepsize_unit", SettingsFragment.DEFAULT_STEP_UNIT)
                     .equals("cm");
         }
@@ -68,7 +68,7 @@ public class HistoryFragment extends Fragment {
                         distance /= 5280;
                     }
                     distance = Math.round(distance * 1000) / 1000f; // 3 decimals
-                    bm.setValue((float)distance);
+                    bm.setValue((float) distance);
                 }
                 barChart.addBar(bm);
             }

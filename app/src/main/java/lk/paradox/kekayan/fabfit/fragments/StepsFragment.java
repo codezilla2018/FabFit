@@ -41,12 +41,12 @@ public class StepsFragment extends Fragment implements SensorEventListener {
     public final static NumberFormat formatter = NumberFormat.getInstance(Locale.getDefault());
     private static double WALKING_FACTOR = 0.57;
     ImageView footImage;
+    SharedPreferences prefs;
     private TextView stepsView, totalView, averageView, caloriesView;
     private PieModel sliceGoal, sliceCurrent;
     private PieChart pg;
     private int todayOffset, total_start, goal, since_boot, total_days;
     private boolean showSteps = true;
-    SharedPreferences prefs;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
         // slice for the "missing" steps until reaching the goal
         SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences
                 ("FabFit", MODE_PRIVATE);
-        int goals= prefs.getInt("dailygoal",SettingsFragment.DEFAULT_GOAL);
+        int goals = prefs.getInt("dailygoal", SettingsFragment.DEFAULT_GOAL);
         sliceGoal = new PieModel("", goals, Color.parseColor("#CC0000"));
         pg.addPieSlice(sliceGoal);
 
@@ -244,7 +244,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
             // update only every 10 steps when displaying distance
             SharedPreferences prefs =
                     Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
-            double stepsize = prefs.getInt("height",DEFAULT_HEIGHT) * 0.415;
+            double stepsize = prefs.getInt("height", DEFAULT_HEIGHT) * 0.415;
             double distance_today = steps_today * stepsize;
             double distance_total = (total_start + steps_today) * stepsize;
             if (prefs.getString("stepsize_unit", SettingsFragment.DEFAULT_STEP_UNIT)
@@ -265,15 +265,15 @@ public class StepsFragment extends Fragment implements SensorEventListener {
                 Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
         double stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
         double distance_today = steps_today * stepsize;
-        caloriesView.setText(formatter.format(calculateCalories( (steps_today))));
+        caloriesView.setText(formatter.format(calculateCalories((steps_today))));
     }
 
     public double calculateCalories(int stepsCount) {
-       SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
+        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
 
-      double CaloriesBurnedPerMile = WALKING_FACTOR * (prefs.getInt("weight",DEFAULT_WEIGHT) * 2.2);
+        double CaloriesBurnedPerMile = WALKING_FACTOR * (prefs.getInt("weight", DEFAULT_WEIGHT) * 2.2);
         //https://fitness.stackexchange.com/a/25500
-        double strip = prefs.getInt("height",DEFAULT_HEIGHT) * 0.415;
+        double strip = prefs.getInt("height", DEFAULT_HEIGHT) * 0.415;
 
         double stepCountMile = 160934.4 / strip;
 
@@ -283,7 +283,6 @@ public class StepsFragment extends Fragment implements SensorEventListener {
 
         return burnedcalories;
     }
-
 
 
 }

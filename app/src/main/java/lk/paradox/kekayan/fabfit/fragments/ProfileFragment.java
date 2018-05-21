@@ -3,7 +3,6 @@ package lk.paradox.kekayan.fabfit.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,7 +38,7 @@ public class ProfileFragment extends Fragment {
     private Button mBack, mConfirm;
     private String mName;
     private String mProfileImageUrl;
-    private boolean imageloaded=false;
+    private boolean imageloaded = false;
     //Url of the Resuts
     private com.mikhaellopez.circularimageview.CircularImageView mProfileImage;
 
@@ -69,7 +68,7 @@ public class ProfileFragment extends Fragment {
         editinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(imageloaded){
+                if (imageloaded) {
                     intent = new Intent(getActivity(), EditprofileActivity.class);
                     Objects.requireNonNull(getActivity()).startActivity(intent);
                     getActivity().finish();
@@ -95,11 +94,12 @@ public class ProfileFragment extends Fragment {
         mEmailField.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         getUserInfo();
     }
+
     private void getUserInfo() {
         if (getActivity() == null) {
             return;
         }
-         listener = new ValueEventListener() {
+        listener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {

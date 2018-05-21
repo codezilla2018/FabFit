@@ -1,7 +1,6 @@
 package lk.paradox.kekayan.fabfit;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -19,8 +18,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Objects;
-
 import lk.paradox.kekayan.fabfit.fragments.ProfileFragment;
 import lk.paradox.kekayan.fabfit.fragments.SettingsFragment;
 import lk.paradox.kekayan.fabfit.fragments.StepsFragment;
@@ -32,8 +29,8 @@ import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_WEIGH
 
 public class MainActivity extends AppCompatActivity {
 
-    private TweetsFragment tweetsFragment;
     private static final int TIME_INTERVAL = 2000;
+    private TweetsFragment tweetsFragment;
     private TextView mTextMessage;
     private long mBackPressed;
     private FragmentManager fm;
@@ -120,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
         //check and put values to height and weight if not in shared prefrends
         SharedPreferences prefs = getSharedPreferences("FabFit", MODE_PRIVATE);
-        int check=prefs.getInt("height",0);
-        if(check<0) {
+        int check = prefs.getInt("height", 0);
+        if (check < 0) {
             SharedPreferences.Editor editor = getSharedPreferences("FabFit", MODE_PRIVATE).edit();
             editor.putInt("height", DEFAULT_HEIGHT);
             editor.putInt("weight", DEFAULT_WEIGHT);
@@ -140,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
     /**
      * Call this method to check
      * read stroage permission
@@ -161,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
+
     /**
      * Call this method to check
      * wrie stroage permission
@@ -183,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-
 
 
 }

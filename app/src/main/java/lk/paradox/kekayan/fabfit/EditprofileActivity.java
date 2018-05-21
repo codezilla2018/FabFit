@@ -97,6 +97,7 @@ public class EditprofileActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Call this method to update the each textfields
      * and image to display first
@@ -134,9 +135,10 @@ public class EditprofileActivity extends AppCompatActivity {
         };
         mDatabase.addValueEventListener(listener);
     }
+
     /**
      * Call this method to update in firebase
-     *if user didnt change profile it will update only others
+     * if user didnt change profile it will update only others
      */
     private void saveUserInformation() {
         mName = mNameField.getText().toString();
