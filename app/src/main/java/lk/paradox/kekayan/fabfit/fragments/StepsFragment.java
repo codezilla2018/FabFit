@@ -263,8 +263,7 @@ public class StepsFragment extends Fragment implements SensorEventListener {
         }
         SharedPreferences prefs =
                 Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", MODE_PRIVATE);
-        double stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
-        double distance_today = steps_today * stepsize;
+
         caloriesView.setText(formatter.format(calculateCalories((steps_today))));
     }
 

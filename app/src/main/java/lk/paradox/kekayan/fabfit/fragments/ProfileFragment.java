@@ -41,8 +41,6 @@ public class ProfileFragment extends Fragment {
     private boolean imageloaded = false;
     //Url of the Resuts
     private com.mikhaellopez.circularimageview.CircularImageView mProfileImage;
-
-    private DatabaseReference mCustomerDatabase;
     private TextView mEmailField;
     private DatabaseReference mdatabase;
     private ValueEventListener listener;

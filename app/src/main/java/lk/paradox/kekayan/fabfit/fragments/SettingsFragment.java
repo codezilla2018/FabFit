@@ -22,9 +22,8 @@ public class SettingsFragment extends Fragment {
     public final static int DEFAULT_WEIGHT = 52;
     public final static int DEFAULT_HEIGHT = 173;
     public final static String DEFAULT_STEP_UNIT = "cm";
-    public final static double DEFAULT_STEP_SIZE = METRIC_AVG_FACTOR * DEFAULT_HEIGHT;
-    private static double METRIC_AVG_FACTOR = 1.167185415740329;
     public static int DEFAULT_GOAL = 10000;
+
     //
     private Button save;
     private EditText dgoal;
