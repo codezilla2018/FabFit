@@ -13,9 +13,11 @@ import lk.paradox.kekayan.fabfit.R;
 
 public class SettingsFragment extends Fragment {
     public final static int DEFAULT_WEIGHT = 52;
+    public final static int DEFAULT_HEIGHT = 173;
+    private static double METRIC_AVG_FACTOR = 1.167185415740329;
     public final static int DEFAULT_GOAL = 10000;
-    public final static float DEFAULT_STEP_SIZE = Locale.getDefault() == Locale.US ? 2.5f : 75f;
-    public final static String DEFAULT_STEP_UNIT = Locale.getDefault() == Locale.US ? "ft" : "cm";
+    public final static double DEFAULT_STEP_SIZE =METRIC_AVG_FACTOR*DEFAULT_HEIGHT;
+    public final static String DEFAULT_STEP_UNIT = "cm";
 
 
     @Override

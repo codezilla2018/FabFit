@@ -24,7 +24,7 @@
             android:id="@+id/imagedp"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/mydp"
+            android:src="@drawable/ic_camera"
             app:civ_border_color="@color/semiTransparentWhite"
             app:civ_border_width="10dp" />
 
@@ -68,17 +68,19 @@
         android:orientation="horizontal">
 
         <Button
+            style="@style/Widget.MaterialComponents.Button"
             android:autoSizeTextType="uniform"
             android:id="@+id/editinfobtn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="EditInfo" />
 
         <Button
+            style="@style/Widget.MaterialComponents.Button"
             android:autoSizeTextType="uniform"
             android:id="@+id/signoutbtn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
             android:layout_weight="1"

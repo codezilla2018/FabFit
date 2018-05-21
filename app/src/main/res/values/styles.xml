@@ -10,9 +10,7 @@
     </style>
 
     <style name="TransparentBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowActionBarOverlay">true</item>
         <item name="android:fontFamily">@font/ubuntu</item>
-        <item name="windowActionBarOverlay">true</item>
     </style>
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:fontFamily">@font/ubuntu</item>

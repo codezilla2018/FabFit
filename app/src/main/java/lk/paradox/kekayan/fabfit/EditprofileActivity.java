@@ -35,25 +35,17 @@ import java.util.Map;
 public class EditprofileActivity extends AppCompatActivity {
     public static final int RC_PHOTO_PICKER = 1;
     //Declaration of UI elements
-    private EditText mNameField, mAgeField, mWeightField;
-    private Button mBack, mConfirm;
-    private TextView mEmailField;
+    private EditText mNameField, mAgeField, mWeightField,mHeightField;
     //Image View
     //String values Of the user values
     private String userID;
     private String mName;
-    private String mPhone;
     private String mProfileImageUrl;
     //Url of the Resuts
     private Uri resultUri;
-    private com.mikhaellopez.circularimageview.CircularImageView mProfileImage;
+    private com.mikhaellopez.circularimageview.CircularImageView myProfileImage;
 
-    //firebase
-    private FirebaseAuth mAuth;
-    private DatabaseReference mCustomerDatabase;
-    private ValueEventListener listener;
-    private String mAge;
-    private String mWeight;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,23 +56,22 @@ public class EditprofileActivity extends AppCompatActivity {
         mNameField = findViewById(R.id.name);
         mAgeField = findViewById(R.id.age);
         mWeightField = findViewById(R.id.weight);
-        mProfileImage = findViewById(R.id.profileImage);
+        mHeightField = findViewById(R.id.height);
+        myProfileImage = findViewById(R.id.profileImage);
 
-        mBack = findViewById(R.id.back);
-        mConfirm = findViewById(R.id.confirm);
-        mEmailField = findViewById(R.id.email);
-
-        mEmailField.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        Button mBack = findViewById(R.id.back);
+        Button mConfirm = findViewById(R.id.confirm);
 
 
-        mAuth = FirebaseAuth.getInstance();
+        //firebase
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getCurrentUser().getUid();
         Log.d("KEY", userID);
         //Database Reference
-        mCustomerDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
 
         getUserInfo();
-        mProfileImage.setOnClickListener(new View.OnClickListener() {
+        myProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -108,7 +99,7 @@ public class EditprofileActivity extends AppCompatActivity {
     }
 
     private void getUserInfo() {
-        listener = new ValueEventListener() {
+        ValueEventListener listener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
@@ -120,12 +111,15 @@ public class EditprofileActivity extends AppCompatActivity {
                     if (map.get("weight") != null) {
                         mWeightField.setText(map.get("weight").toString());
                     }
+                    if (map.get("height") != null) {
+                        mHeightField.setText(map.get("height").toString());
+                    }
                     if (map.get("age") != null) {
                         mAgeField.setText(map.get("age").toString());
                     }
                     if (map.get("profileImageUrl") != null) {
                         mProfileImageUrl = map.get("profileImageUrl").toString();
-                        Glide.with(getApplication()).load(mProfileImageUrl).into(mProfileImage);
+                        Glide.with(getApplicationContext()).load(mProfileImageUrl).into(myProfileImage);
                     }
                 }
             }
@@ -135,19 +129,21 @@ public class EditprofileActivity extends AppCompatActivity {
 
             }
         };
-        mCustomerDatabase.addValueEventListener(listener);
+        mDatabase.addValueEventListener(listener);
     }
 
     private void saveUserInformation() {
 
         mName = mNameField.getText().toString();
-        mAge = mAgeField.getText().toString();
-        mWeight = mWeightField.getText().toString();
+        String mAge = mAgeField.getText().toString();
+        String mWeight = mWeightField.getText().toString();
+        String mHeight = mHeightField.getText().toString();
         Map userInfo = new HashMap();
         userInfo.put("name", mName);
         userInfo.put("age", mAge);
         userInfo.put("weight", mWeight);
-        mCustomerDatabase.updateChildren(userInfo);
+        userInfo.put("height", mHeight);
+        mDatabase.updateChildren(userInfo);
         if (resultUri != null) {
             StorageReference filePath = FirebaseStorage.getInstance().getReference().child("profile_images").child(userID);
             Bitmap bitmap = null;
@@ -177,7 +173,7 @@ public class EditprofileActivity extends AppCompatActivity {
 
                     Map newImage = new HashMap();
                     newImage.put("profileImageUrl", downloadUrl.toString());
-                    mCustomerDatabase.updateChildren(newImage);
+                    mDatabase.updateChildren(newImage);
                     Log.i("KEY", "upload");
                     //finish();
                     return;
@@ -199,7 +195,7 @@ public class EditprofileActivity extends AppCompatActivity {
             if (requestCode == RC_PHOTO_PICKER) {
                 final Uri imageUri = data.getData();
                 resultUri = imageUri;
-                mProfileImage.setImageURI(resultUri);
+                myProfileImage.setImageURI(resultUri);
             }
         }
 

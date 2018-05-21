@@ -35,10 +35,7 @@ import lk.paradox.kekayan.fabfit.helpers.Util;
 public class StepsFragment extends Fragment implements SensorEventListener {
 
     public final static NumberFormat formatter = NumberFormat.getInstance(Locale.getDefault());
-    // from https://github.com/bagilevi/android-pedometer/blob/master/src/name/bagi/levente/pedometer/CaloriesNotifier.java
-    private static double METRIC_RUNNING_FACTOR = 1.02784823;
-    private static double METRIC_WALKING_FACTOR = 0.708;
-    private static double METRIC_AVG_FACTOR = (METRIC_RUNNING_FACTOR + METRIC_WALKING_FACTOR) / 2;
+    private static double METRIC_FACTOR = 1.007326007326007;
     ImageView footImage;
     private TextView stepsView, totalView, averageView, caloriesView;
     private PieModel sliceGoal, sliceCurrent;
@@ -239,9 +236,9 @@ public class StepsFragment extends Fragment implements SensorEventListener {
             // update only every 10 steps when displaying distance
             SharedPreferences prefs =
                     Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", Context.MODE_PRIVATE);
-            float stepsize = prefs.getFloat("stepsize_value", SettingsFragment.DEFAULT_STEP_SIZE);
-            float distance_today = steps_today * stepsize;
-            float distance_total = (total_start + steps_today) * stepsize;
+            double stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
+            double distance_today = steps_today * stepsize;
+            double distance_total = (total_start + steps_today) * stepsize;
             if (prefs.getString("stepsize_unit", SettingsFragment.DEFAULT_STEP_UNIT)
                     .equals("cm")) {
                 distance_today /= 100000;
@@ -257,15 +254,19 @@ public class StepsFragment extends Fragment implements SensorEventListener {
             caloriesView.setText(formatter.format(calculateCalories(steps_today)));
 
         }
+        SharedPreferences prefs =
+                Objects.requireNonNull(getActivity()).getSharedPreferences("FabFit", Context.MODE_PRIVATE);
+        double stepsize = Double.valueOf(prefs.getString("stepsize_value", String.valueOf(SettingsFragment.DEFAULT_STEP_SIZE)));
+        double distance_today = steps_today * stepsize;
+        caloriesView.setText(formatter.format(calculateCalories( (distance_today /= 100000))));
     }
 
-    public double calculateCalories(int stepscount) {
+    public double calculateCalories(double distance) {
 
         double mCalories =
-                (SettingsFragment.DEFAULT_WEIGHT * (METRIC_AVG_FACTOR))
-                        * 75 * stepscount / 100000.0;
-        //75-step size
-        //weight
+                (SettingsFragment.DEFAULT_WEIGHT * (METRIC_FACTOR))
+                        *distance;
+
         return mCalories;
     }
 
