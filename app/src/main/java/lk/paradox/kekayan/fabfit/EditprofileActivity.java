@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,13 +32,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_HEIGHT;
-import static lk.paradox.kekayan.fabfit.fragments.SettingsFragment.DEFAULT_WEIGHT;
-
 public class EditprofileActivity extends AppCompatActivity {
     public static final int RC_PHOTO_PICKER = 1;
     //Declaration of UI elements
-    private EditText mNameField, mAgeField, mWeightField,mHeightField;
+    private EditText mNameField, mAgeField, mWeightField, mHeightField;
     //Image View
     //String values Of the user values
     private String userID;
@@ -137,7 +133,6 @@ public class EditprofileActivity extends AppCompatActivity {
     }
 
     private void saveUserInformation() {
-
         mName = mNameField.getText().toString();
         String mAge = mAgeField.getText().toString();
         String mWeight = mWeightField.getText().toString();
@@ -147,7 +142,13 @@ public class EditprofileActivity extends AppCompatActivity {
         userInfo.put("age", mAge);
         userInfo.put("weight", mWeight);
         userInfo.put("height", mHeight);
+        Log.i("KEY", userInfo.toString());
         mDatabase.updateChildren(userInfo);
+        SharedPreferences.Editor editor = getSharedPreferences("FabFit", MODE_PRIVATE).edit();
+        editor.putInt("height", Integer.valueOf(mHeight));
+        editor.putInt("weight", Integer.valueOf(mWeight));
+        editor.apply();
+
         if (resultUri != null) {
             StorageReference filePath = FirebaseStorage.getInstance().getReference().child("profile_images").child(userID);
             Bitmap bitmap = null;
@@ -185,13 +186,10 @@ public class EditprofileActivity extends AppCompatActivity {
             });
 
 
-            SharedPreferences.Editor editor = getSharedPreferences("FabFit", MODE_PRIVATE).edit();
-            editor.putInt("height", Integer.valueOf(mHeight));
-            editor.putInt("weight", Integer.valueOf(mWeight));
-            editor.apply();
         } else {
             Log.i("KEY", "update eror");
             //finish();
+           
         }
 
     }
