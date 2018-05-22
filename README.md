@@ -20,11 +20,18 @@ Download the [apk](https://github.com/codezilla2018/FabFit/blob/master/demo%20ap
 ## contribution and learning
 please if possible continue the branch support desgin v28 to adopt new material components
 
+Things we can add over the one i devloped.
+
+* From the Histroy we can do the UI for Achievements
+* Using google's [activity recognition api ](https://developers.google.com/location-context/activity-recognition/)we can find users activites and calculate calories based on that.
+* Localization coontributors can add support to Sinhala & Tamil or other languages.
 
 * [check wiki](https://github.com/codezilla2018/FabFit/wiki)
 
 * [about contribution](https://github.com/codezilla2018/FabFit/blob/master/CONTRIBUTING.md)
-
+## privacy
+* steps and calories are storing in your mobile
+* we won't use your height,weight and age or email for any other purposes.
 ## About 
 Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery** consumption which runs in hardware level.
 
