@@ -76,6 +76,7 @@ public class TweetsFragment extends Fragment {
     }
 
     public void searchtweets() {
+
         SearchTimeline searchTimeline = new SearchTimeline.Builder()
                 .query("#fitnesstips")//the search query for Tweets here hashtag for fitness
                 .languageCode(Locale.ENGLISH.getLanguage())//set the language code

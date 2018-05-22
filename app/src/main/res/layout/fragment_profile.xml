@@ -38,14 +38,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:text="edit info"
                 android:id="@+id/nametxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif-light"
-                android:text="Kekayan"
                 android:textColor="@android:color/black"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/emailtxt"
@@ -54,7 +54,7 @@
                 android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif-light"
                 android:text="SE"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -69,7 +69,6 @@
 
         <Button
             android:id="@+id/editinfobtn"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -78,8 +77,6 @@
 
         <Button
             android:id="@+id/signoutbtn"
-
-            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="4dp"

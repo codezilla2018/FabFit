@@ -12,6 +12,7 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profileImage"
+        android:src="@drawable/ic_person"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
