@@ -18,8 +18,9 @@ Download the [apk](https://github.com/codezilla2018/FabFit/blob/master/demo%20ap
 * some screen may be not the same due to version downgrading of the desgin support library
 
 ## contribution and learning
-[check wiki](https://github.com/codezilla2018/FabFit/wiki)
-[about contribution](https://github.com/codezilla2018/FabFit/blob/master/CONTRIBUTING.md)
+* [check wiki](https://github.com/codezilla2018/FabFit/wiki)
+
+* [about contribution](https://github.com/codezilla2018/FabFit/blob/master/CONTRIBUTING.md)
 
 ## About 
 Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery** consumption which runs in hardware level.
@@ -32,7 +33,7 @@ more info about step counter sensor:
 ## Accelometer based app
 bagillevi devloped one [follow link](https://github.com/bagilevi/android-pedometer)
 
-##Inspiration
+## Inspiration
 Github user name [j4vlin](https://github.com/j4velin) created a app based on sensor counter method
 
 So FabFit uses the hardware step detection sensor of the Samsung S7, which is already running even when not using any stepcounting app. Therefore the app does not drain any additional battery. Unlike other apps, this app does not track your movement or your location so it doesn't need to turn on your GPS sensor aslo.
@@ -41,7 +42,7 @@ So FabFit uses the hardware step detection sensor of the Samsung S7, which is al
 
 <p><img src="https://github.com/kekayan/FabFit/raw/master/screenshots/login.png" width="250" /></p>
   * Sign in with your Google account!
-beacuase currently only google sign in enabled
+     beacuase currently only google sign in enabled
 
 * setup your profile first by navigate to profile then edit info.
 * In Profile Editinfo Section
