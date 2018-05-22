@@ -24,14 +24,18 @@ more info about step counter sensor:
 [![youtube video](https://img.youtube.com/vi/yv9jskPvLUc/mqdefault.jpg)](http://www.youtube.com/watch?v=yv9jskPvLUc)
 [link](https://www.youtube.com/watch?v=yv9jskPvLUc)
 >We can implement  own step-detection algorithm or  Sensor Fusion and other Algorithms using the acceleration data from Accelerometer sensor.But the battery use is extremely high as you have to keep the system awake.Since most the devices now have sensor for step dector better and recommended to use to save battery which crucial in mobile devices.
+## Accelometer based app
+bagillevi devloped one [follow link](https://github.com/bagilevi/android-pedometer)
 
+##Inspiration
+Github user name [j4vlin](https://github.com/j4velin) created a app based on sensor counter method
 
 So FabFit uses the hardware step detection sensor of the Samsung S7, which is already running even when not using any stepcounting app. Therefore the app does not drain any additional battery. Unlike other apps, this app does not track your movement or your location so it doesn't need to turn on your GPS sensor aslo.
 
 ## Usage
 
 <p><img src="https://github.com/kekayan/FabFit/raw/master/screenshots/login.png" width="250" /></p>
-* Sign in with your Google account!
+  * Sign in with your Google account!
 beacuase currently only google sign in enabled
 
 * setup your profile first by navigate to profile then edit info.
