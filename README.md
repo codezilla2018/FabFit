@@ -16,6 +16,11 @@ Download the [apk](https://github.com/codezilla2018/FabFit/blob/master/demo%20ap
 </p>
 
 * some screen may be not the same due to version downgrading of the desgin support library
+
+## contribution and learning
+[check wiki](https://github.com/codezilla2018/FabFit/wiki)
+[about contribution](https://github.com/codezilla2018/FabFit/blob/master/CONTRIBUTING.md)
+
 ## About 
 Simple 	**FabFit** app using the 	**step-sensor**  which introuduced in KitKat version of android for 	**minimal** **battery** consumption which runs in hardware level.
 
