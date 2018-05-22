@@ -1,9 +1,7 @@
 # FabFit
 notkekayan@gmail.com Kekayan kekayan IA9
 ***
-Download the [apk](https://github.com/codezilla2018/FabFit/raw/master/demo/app.apk) or [abb](https://github.com/codezilla2018/FabFit/raw/master/demo/app.apk)
-or
-[both](https://github.com/codezilla2018/FabFit/tree/master/demo)
+Download the [apk](https://github.com/codezilla2018/FabFit/blob/master/demo%20apk/app.apk) 
 ***
 <p float="left">
   <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/steps.png" width="250" />
