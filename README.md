@@ -18,6 +18,9 @@ Download the [apk](https://github.com/codezilla2018/FabFit/blob/master/demo%20ap
 * some screen may be not the same due to version downgrading of the desgin support library
 
 ## contribution and learning
+please if possible continue the branch support desgin v28 to adopt new material components
+
+
 * [check wiki](https://github.com/codezilla2018/FabFit/wiki)
 
 * [about contribution](https://github.com/codezilla2018/FabFit/blob/master/CONTRIBUTING.md)
