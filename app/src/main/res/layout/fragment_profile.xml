@@ -7,9 +7,9 @@
     tools:context=".fragments.ProfileFragment">
 
     <RelativeLayout
-    android:id="@+id/background"
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:background="@drawable/background" />
 
     <LinearLayout
@@ -38,20 +38,20 @@
             android:orientation="vertical">
 
             <TextView
-                android:autoSizeTextType="uniform"
                 android:id="@+id/nametxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif-light"
                 android:text="Kekayan"
                 android:textColor="@android:color/black"
                 android:textSize="30sp" />
 
             <TextView
-                android:autoSizeTextType="uniform"
                 android:id="@+id/emailtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif-light"
                 android:text="SE"
                 android:textSize="14sp" />
@@ -68,22 +68,23 @@
         android:orientation="horizontal">
 
         <Button
-            style="@style/Widget.MaterialComponents.Button"
-            android:autoSizeTextType="uniform"
             android:id="@+id/editinfobtn"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:autoSizeTextType="uniform"
             android:text="EditInfo" />
 
         <Button
-            style="@style/Widget.MaterialComponents.Button"
-            android:autoSizeTextType="uniform"
             android:id="@+id/signoutbtn"
+
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
             android:layout_weight="1"
+            android:autoSizeTextType="uniform"
 
             android:text="Logout" />
 
