@@ -87,12 +87,13 @@ public class ProfileFragment extends Fragment {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         //Image View
         //String values Of the user values
-        String userID = mAuth.getCurrentUser().getUid();
-        //Database Reference
-        mdatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
-        mEmailField.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        if (mAuth != null) {
+            String userID = mAuth.getCurrentUser().getUid();
+            //Database Reference
+            mdatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+            mEmailField.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
-
+        }
         getUserInfo();
     }
 
