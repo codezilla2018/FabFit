@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,11 +67,11 @@ public class ProfileFragment extends Fragment {
         editinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imageloaded) {
+
                     intent = new Intent(getActivity(), EditprofileActivity.class);
                     Objects.requireNonNull(getActivity()).startActivity(intent);
                     getActivity().finish();
-                }
+
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +91,8 @@ public class ProfileFragment extends Fragment {
         //Database Reference
         mdatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
         mEmailField.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+
         getUserInfo();
     }
 
@@ -105,6 +108,8 @@ public class ProfileFragment extends Fragment {
                     if (map.get("name") != null) {
                         mName = map.get("name").toString();
                         mNameField.setText(mName);
+                    } else {
+                        Toast.makeText(getContext(), "please edit profile", Toast.LENGTH_LONG).show();
                     }
                     if (map.get("profileImageUrl") != null) {
                         mProfileImageUrl = map.get("profileImageUrl").toString();
