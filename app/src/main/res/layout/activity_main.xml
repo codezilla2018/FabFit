@@ -21,7 +21,6 @@
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -19,7 +19,7 @@
         app:civ_border_width="10dp" />
 
     <android.support.design.widget.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlineBox"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
@@ -27,11 +27,11 @@
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/name"
-            android:autoSizeTextType="uniform"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:autoSizeTextType="uniform"
             android:hint="Name"
             android:inputType="text"
             android:textColor="@color/colorWhite"
@@ -39,18 +39,18 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlineBox"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:textColorHint="@android:color/white">
 
         <android.support.design.widget.TextInputEditText
-            android:autoSizeTextType="uniform"
             android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:autoSizeTextType="uniform"
             android:hint="Age"
             android:inputType="number"
             android:textColor="@color/colorWhite"
@@ -58,60 +58,58 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlineBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:textColorHint="@android:color/white">
 
         <android.support.design.widget.TextInputEditText
-            android:autoSizeTextType="uniform"
             android:id="@+id/weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:autoSizeTextType="uniform"
             android:hint="Weight"
             android:inputType="numberDecimal"
             android:textColor="@color/colorWhite"
             android:textColorHint="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlineBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:textColorHint="@android:color/white">
 
         <android.support.design.widget.TextInputEditText
-            android:autoSizeTextType="uniform"
             android:id="@+id/height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:autoSizeTextType="uniform"
             android:hint="@string/height"
             android:inputType="numberDecimal"
             android:textColor="@color/colorWhite"
             android:textColorHint="@android:color/white" />
     </android.support.design.widget.TextInputLayout>
+
     <Button
         android:id="@+id/confirm"
-        android:autoSizeTextType="uniform"
-        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginTop="50dp"
+        android:autoSizeTextType="uniform"
         android:text="save" />
 
     <Button
         android:id="@+id/back"
-        android:autoSizeTextType="uniform"
-        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:text="back"
-        />
+        android:autoSizeTextType="uniform"
+        android:text="back" />
 
 
 </LinearLayout>
