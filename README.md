@@ -3,6 +3,13 @@
 ## Installation
 
 Download the [apk](https://github.com/codezilla2018/FabFit/blob/master/demo%20apk/app.apk) 
+
+## why this app
+* The app uses the hardware step counter which is very accurate than accelometer.
+* Because of hardware sensor it ll be battery friendly
+* The app counts or tracks the steps even if you don't use the app in front which most rivals couldn't do .
+* App is light weight.
+
 ## Screenshots
 <p float="left">
   <img src="https://github.com/kekayan/FabFit/raw/master/screenshots/steps.png" width="250" />
@@ -24,6 +31,7 @@ Things we can add over the one i devloped.
 
 * From the Histroy we can do the UI for Achievements
 * Using google's [activity recognition api ](https://developers.google.com/location-context/activity-recognition/)we can find users activites and calculate calories based on that.
+* further we can say speed according to activity .
 * Localization coontributors can add support to Sinhala & Tamil or other languages.
 
 * [check wiki](https://github.com/codezilla2018/FabFit/wiki)
